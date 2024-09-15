@@ -1,0 +1,50 @@
+{
+    "projects": [
+      {
+        "title": "FIRE RENDER MODEL",
+        "description": "Incredible innovation in fire safety engineering using advanced ML techniques.",
+        "image": "/api/placeholder/600/400",
+        "demo_link": "https://demo.firerender.com",
+        "github_link": "https://github.com/vineetkukreti/fire-render-model",
+        "tags": ["Machine Learning", "Fire Safety", "Python"]
+      },
+      {
+        "title": "Water Breeze Model",
+        "description": "An innovative water management solution leveraging IoT and ML for efficient resource utilization.",
+        "image": "/api/placeholder/600/400",
+        "demo_link": "https://demo.waterbreeze.com",
+        "github_link": "https://github.com/vineetkukreti/water-breeze-model",
+        "tags": ["IoT", "Machine Learning", "Water Management"]
+      },
+      {
+        "title": "SUPERB",
+        "description": "A vision tool for blind & low-vision people using state-of-the-art computer vision algorithms.",
+        "image": "/api/placeholder/600/400",
+        "demo_link": "https://demo.superb-vision.com",
+        "github_link": "https://github.com/vineetkukreti/superb-vision-tool",
+        "tags": ["Computer Vision", "Accessibility", "AI"]
+      }
+
+
+      ,
+
+      {
+        "title": "FIRE RENDER MODEL 0001 ",
+        "description": "Incredible innovation in fire safety engineering using advanced ML techniques.",
+        "image": "/api/placeholder/600/400",
+        "demo_link": "https://demo.firerender.com",
+        "github_link": "https://github.com/vineetkukreti/fire-render-model",
+        "tags": ["Machine Learning", "Fire Safety", "Python"]
+      }
+
+      ,
+      {
+        "title": "FIRE RENDER MODEL 0001 ",
+        "description": "Incredible innovation in fire safety engineering using advanced ML techniques.",
+        "image": "/api/placeholder/600/400",
+        "demo_link": "https://demo.firerender.com",
+        "github_link": "https://github.com/vineetkukreti/fire-render-model",
+        "tags": ["Machine Learning", "Fire Safety", "Python"]
+      }
+    ]
+  }

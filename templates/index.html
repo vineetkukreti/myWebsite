@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ portfolio.name }} - {{ portfolio.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        .bg-gradient {
+            background: linear-gradient(90deg, #4F46E5 0%, #7C3AED 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800">{{ portfolio.name }}</a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="text-gray-600 hover:text-indigo-600">About</a></li>
+                <li><a href="#experience" class="text-gray-600 hover:text-indigo-600">Experience</a></li>
+                <li><a href="#skills" class="text-gray-600 hover:text-indigo-600">Skills</a></li>
+                <li><a href="#projects" class="text-gray-600 hover:text-indigo-600">Projects</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-indigo-600">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="bg-gradient text-white py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-4">{{ portfolio.name }}</h1>
+            <p class="text-2xl mb-8">{{ portfolio.title }}</p>
+            <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-indigo-100 transition duration-300">Get in Touch</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="about" class="mb-20">
+            <h2 class="text-3xl font-bold mb-6 text-center">About Me</h2>
+            <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">{{ portfolio.about }}</p>
+        </section>
+
+        <section id="experience" class="mb-20">
+            <h2 class="text-3xl font-bold mb-6 text-center">Experience</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {% for exp in portfolio.experiences %}
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">{{ exp.title }}</h3>
+                    <p class="text-indigo-600 mb-2">{{ exp.company }} | {{ exp.date }}</p>
+                    <p class="text-gray-700">{{ exp.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="skills" class="mb-20">
+            <h2 class="text-3xl font-bold mb-6 text-center">Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                {% for skill in portfolio.skills %}
+                <span class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="projects" class="mb-20">
+            <h2 class="text-3xl font-bold mb-6 text-center">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for project in projects %}
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="{{ project.image }}" alt="{{ project.title }}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
+                        <p class="text-gray-700 mb-4">{{ project.description }}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            {% for tag in project.tags %}
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded text-sm">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="{{ project.demo_link }}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800">
+                                <i class="fas fa-play-circle mr-1"></i> Demo
+                            </a>
+                            <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-800">
+                                <i class="fab fa-github mr-1"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="contact" class="mb-20">
+            <h2 class="text-3xl font-bold mb-6 text-center">Get in Touch</h2>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:{{ portfolio.contact.email }}" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                    <i class="fas fa-envelope text-4xl"></i>
+                    <span class="sr-only">Send Email</span>
+                </a>
+                <a href="{{ portfolio.contact.linkedin }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition duration-300">
+                    <i class="fab fa-linkedin text-4xl"></i>
+                    <span class="sr-only">LinkedIn Profile</span>
+                </a>
+                <a href="{{ portfolio.contact.github }}" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-gray-600 transition duration-300">
+                    <i class="fab fa-github text-4xl"></i>
+                    <span class="sr-only">GitHub Profile</span>
+                </a>
+                <a href="{{ portfolio.contact.website }}" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-800 transition duration-300">
+                    <i class="fas fa-globe text-4xl"></i>
+                    <span class="sr-only">Personal Website</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 {{ portfolio.name }}. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
