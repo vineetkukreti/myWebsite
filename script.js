@@ -138,7 +138,6 @@ function populateSkills() {
     });
 }
 
-
 function populateProjects() {
     const projectsGrid = document.getElementById('projects-grid');
     portfolioData.projects.forEach((project, index) => {
@@ -228,32 +227,6 @@ function initializeTypewriter() {
     type();
 }
 
-function initializeTiltEffect() {
-    const cards = document.querySelectorAll('.tilt-effect');
-    
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const tiltX = (y - centerY) / 10;
-            const tiltY = (centerX - x) / 10;
-
-            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05, 1.05, 1.05)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        });
-    });
-}
-
-// ... (keep all previous functions)
-
 function animateAIIcons() {
     const icons = document.querySelectorAll('.ai-icon');
     icons.forEach(icon => {
@@ -272,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
     populatePatents();
     populateVolunteering();
     initializeTypewriter();
-    initializeTiltEffect();
     animateAIIcons();
 
     // Smooth scrolling for anchor links
@@ -285,10 +257,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuToggle = document.getElementById('menu-toggle');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.classList.add('bg-white', 'shadow-md');
+        } else {
+            navbar.classList.remove('bg-white', 'shadow-md');
+        }
+    });
+
     // Initialize AOS
     AOS.init({
         duration: 1000,
         once: true,
     });
 });
-
