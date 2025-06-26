@@ -190,4 +190,3 @@ For questions about this portfolio template:
 
 ---
 
-Built with ❤️ and modern web technologies
