@@ -164,18 +164,36 @@ const portfolioData = {
 // Populate Skills
 // ============================================
 
+// ============================================
+// Populate Skills (Infinite Marquee)
+// ============================================
+
 function populateSkills() {
   const skillsContainer = document.getElementById('skills-grid');
   if (!skillsContainer) return;
 
-  skillsContainer.innerHTML = portfolioData.skills.map(skill => `
-    <div class="skill-card">
-      <div class="skill-icon">
-        <i class="${skill.icon}"></i>
-      </div>
-      <div class="skill-name">${skill.name}</div>
+  // Clear existing class
+  skillsContainer.className = 'marquee-container';
+
+  // Create track
+  const track = document.createElement('div');
+  track.className = 'marquee-track';
+
+  // Create skill items function
+  const createSkillItem = (skill) => `
+    <div class="marquee-item">
+      <i class="${skill.icon} marquee-icon"></i>
+      <span class="marquee-text">${skill.name}</span>
     </div>
-  `).join('');
+  `;
+
+  // Duplicate skills for seamless loop (at least enough to fill width twice)
+  // 12 skills * 3 sets should be plenty
+  const allSkills = [...portfolioData.skills, ...portfolioData.skills, ...portfolioData.skills];
+
+  track.innerHTML = allSkills.map(createSkillItem).join('');
+  skillsContainer.innerHTML = '';
+  skillsContainer.appendChild(track);
 }
 
 // ============================================
@@ -549,7 +567,6 @@ function populateVolunteering() {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCanvasAnimation();
   simpleTypewriter();
   populateSkills();
   populateProjects();
@@ -561,5 +578,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupContactForm();
   setupScrollAnimations();
 
-  console.log('✨ Modern AI Portfolio Loaded!');
+  console.log('✨ Minimalist Portfolio Loaded!');
 });
