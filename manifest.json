@@ -1,0 +1,30 @@
+{
+  "name": "Vineet Kukreti - AI/ML Engineer Portfolio",
+  "short_name": "VK Portfolio",
+  "description": "Professional portfolio showcasing AI/ML projects, experience, and expertise",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#2d5a27",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vineet-kukreti-favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/vineet-kukreti-favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/vineet-kukreti-apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "technology", "ai", "ml"],
+  "screenshots": []
+}

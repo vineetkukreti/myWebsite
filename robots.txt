@@ -1,0 +1,12 @@
+# Robots.txt for Portfolio Website
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://vineetkukreti.in/sitemap.xml
+
+# Disallow admin or private directories if any
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/
