@@ -346,14 +346,220 @@ function setupContactForm() {
 // Initialize
 // ============================================
 
+// ============================================
+// Canvas Animation (Neural Network)
+// ============================================
+
+function initCanvasAnimation() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+
+  // Resize handler
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+
+  // Particle class
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.size = Math.random() * 2 + 1;
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+
+    draw() {
+      ctx.fillStyle = 'rgba(59, 130, 246, 0.5)'; // Primary color
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // Initialize particles
+  function initParticles() {
+    particles = [];
+    const particleCount = Math.min(window.innerWidth / 10, 100);
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  // Animation loop
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Draw connections
+    ctx.strokeStyle = 'rgba(59, 130, 246, 0.1)';
+    ctx.lineWidth = 1;
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.update();
+      p.draw();
+
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 150) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', () => {
+    resize();
+    initParticles();
+  });
+
+  resize();
+  initParticles();
+  animate();
+}
+
+// ============================================
+// Scroll Animations (Intersection Observer)
+// ============================================
+
+function setupScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Add fade-in-up class to elements
+  document.querySelectorAll('.section-title, .section-description, .project-card, .experience-item, .skill-card, .about-card').forEach(el => {
+    el.classList.add('fade-in-up');
+    observer.observe(el);
+  });
+}
+
+// ============================================
+// Populate Patents
+// ============================================
+
+function populatePatents() {
+  const patentsContainer = document.getElementById('patents-grid');
+  if (!patentsContainer) return;
+
+  // Add patents data if not already present in portfolioData
+  if (!portfolioData.patents) {
+    portfolioData.patents = [
+      {
+        title: "FIRE RENDER MODEL",
+        number: "202211059773 A",
+        description: "Real-time forest fire detection system using What Three Words technology for accurate location and swift response.",
+        tags: ["AI", "Safety"]
+      },
+      {
+        title: "SUPERB: VISION TOOL",
+        number: "202211059770 A",
+        description: "Smart glasses with AI technology to provide real-time data and navigation assistance for visually impaired individuals.",
+        tags: ["Assistive Tech", "CV"]
+      },
+      {
+        title: "Water Breeze Model",
+        number: "202211004912 A",
+        description: "Revolutionary system that harnesses condensation to provide a sustainable source of clean drinking water from sea or air.",
+        tags: ["Sustainability", "IoT"]
+      }
+    ];
+  }
+
+  patentsContainer.innerHTML = portfolioData.patents.map(patent => `
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-tags" style="margin-bottom: 1rem;">
+           <span class="tag" style="border-color: var(--secondary); color: var(--secondary);">Patent Pending</span>
+        </div>
+        <h3 class="project-title">${patent.title}</h3>
+        <p class="project-description">${patent.description}</p>
+        <div class="project-tags">
+            <span class="tag">${patent.number}</span>
+            ${patent.tags ? patent.tags.map(tag => `<span class="tag">${tag}</span>`).join('') : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ============================================
+// Populate Volunteering
+// ============================================
+
+function populateVolunteering() {
+  const volContainer = document.getElementById('volunteering-grid');
+  if (!volContainer) return;
+
+  const volunteering = [
+    {
+      title: "Vice Chairperson",
+      org: "IEEE SB GEHU",
+      desc: "Led initiatives to advance technology and engineering, organized workshops, seminars, and promoted student-led research projects."
+    },
+    {
+      title: "Technical Head",
+      org: "Shikhar CLUB",
+      desc: "Co-founded and led technical aspects of an entrepreneurship club, fostering innovation and problem-solving skills among students."
+    }
+  ];
+
+  volContainer.innerHTML = volunteering.map(vol => `
+        <div class="about-card">
+            <h3>${vol.title}</h3>
+            <p style="color: var(--primary); margin-bottom: 0.5rem; font-weight: 600;">${vol.org}</p>
+            <p>${vol.desc}</p>
+        </div>
+    `).join('');
+}
+
+// ============================================
+// Initialize
+// ============================================
+
 document.addEventListener('DOMContentLoaded', () => {
+  initCanvasAnimation();
   simpleTypewriter();
   populateSkills();
   populateProjects();
   populateExperience();
+  populatePatents();
+  populateVolunteering();
   setupSmoothScroll();
   setupMobileMenu();
-  setupContactForm(); // Initialize contact form
+  setupContactForm();
+  setupScrollAnimations();
 
-  console.log('✨ Simple Portfolio Loaded!');
+  console.log('✨ Modern AI Portfolio Loaded!');
 });

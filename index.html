@@ -34,6 +34,7 @@
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#experience" class="nav-link">Experience</a>
+                <a href="#patents" class="nav-link">Patents</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <button id="menu-toggle" class="mobile-menu-btn">
@@ -53,25 +54,28 @@
             <a href="#skills" class="menu-link">Skills</a>
             <a href="#projects" class="menu-link">Projects</a>
             <a href="#experience" class="menu-link">Experience</a>
+            <a href="#patents" class="menu-link">Patents</a>
             <a href="#contact" class="menu-link">Contact</a>
         </div>
     </div>
 
     <!-- Hero Section -->
     <section class="hero-simple">
+        <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm Vineet Kukreti</h1>
-            <p class="hero-subtitle"><span class="typewriter"></span></p>
+            <h1 class="hero-title">Hi, I'm <span class="text-gradient">Vineet Kukreti</span></h1>
+            <p class="hero-subtitle">> <span class="typewriter"></span><span class="cursor">|</span></p>
             <p class="hero-description">
-                I build AI and Machine Learning solutions to solve real-world problems.
-                Passionate about computer vision, NLP, and creating impactful technology.
+                Building intelligent systems that bridge the gap between data and decision-making.
+                Specializing in <strong>Generative AI</strong>, <strong>Computer Vision</strong>, and <strong>Knowledge
+                    Graphs</strong>.
             </p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-folder"></i> View Projects
+                    <i class="fas fa-code-branch"></i> View Projects
                 </a>
                 <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Get in Touch
+                    <i class="fas fa-paper-plane"></i> Get in Touch
                 </a>
             </div>
         </div>
@@ -160,6 +164,30 @@
 
         <!-- JavaScript will populate this -->
         <div id="experience-list" class="experience-list"></div>
+    </section>
+
+    <!-- Patents Section -->
+    <section class="patents-simple" id="patents">
+        <div class="section-header">
+            <span class="section-tag">Innovation</span>
+            <h2 class="section-title">Patents</h2>
+            <p class="section-description">
+                Intellectual property and research contributions.
+            </p>
+        </div>
+        <div id="patents-grid" class="projects-grid"></div>
+    </section>
+
+    <!-- Volunteering Section -->
+    <section class="volunteering-simple" id="volunteering">
+        <div class="section-header">
+            <span class="section-tag">Community</span>
+            <h2 class="section-title">Volunteering</h2>
+            <p class="section-description">
+                Giving back to the tech community.
+            </p>
+        </div>
+        <div id="volunteering-grid" class="about-grid"></div>
     </section>
 
     <!-- Contact Section -->
