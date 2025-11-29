@@ -554,12 +554,19 @@ function populateVolunteering() {
   ];
 
   volContainer.innerHTML = volunteering.map(vol => `
-        <div class="about-card">
-            <h3>${vol.title}</h3>
-            <p style="color: var(--primary); margin-bottom: 0.5rem; font-weight: 600;">${vol.org}</p>
-            <p>${vol.desc}</p>
+    <div class="project-card">
+      <div class="project-content">
+        <div class="project-tags" style="margin-bottom: 1rem;">
+           <span class="tag" style="border-color: var(--primary); color: var(--primary);">Community</span>
         </div>
-    `).join('');
+        <h3 class="project-title">${vol.title}</h3>
+        <p class="project-description">${vol.desc}</p>
+        <div class="project-tags">
+            <span class="tag">${vol.org}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
 }
 
 // ============================================
