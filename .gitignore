@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# SSH keys (should never be committed)
+*.pem
+*.pub
+id_*
+
+# Design tool files
+*.pen
+
+# Claude Code
+.claude/

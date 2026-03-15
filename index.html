@@ -8,7 +8,7 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Vineet Kukreti is an AI/ML Engineer specializing in artificial intelligence and machine learning solutions. Explore projects and work in data science, deep learning, and neural networks.">
+        content="Vineet Kukreti — AI Engineer building production healthcare AI systems. 98.8% accuracy on knowledge graph queries, 3 patents, 2 IEEE publications. Open to opportunities.">
     <meta name="keywords"
         content="Vineet Kukreti, AI Engineer, ML Engineer, Artificial Intelligence, Machine Learning, Data Science, Deep Learning, Neural Networks, Computer Vision, NLP">
     <meta name="author" content="Vineet Kukreti">
@@ -19,7 +19,7 @@
     <meta property="og:url" content="https://vineetkukreti.in/">
     <meta property="og:title" content="Vineet Kukreti - AI/ML Engineer">
     <meta property="og:description"
-        content="Vineet Kukreti is an AI/ML Engineer specializing in artificial intelligence and machine learning solutions.">
+        content="AI Engineer building healthcare AI systems — 98.8% accuracy, 3 patents, 2 IEEE papers. Open to opportunities.">
     <meta property="og:image" content="https://vineetkukreti.in/images/profile.jpg">
 
     <!-- Twitter -->
@@ -27,7 +27,7 @@
     <meta property="twitter:url" content="https://vineetkukreti.in/">
     <meta property="twitter:title" content="Vineet Kukreti - AI/ML Engineer">
     <meta property="twitter:description"
-        content="Vineet Kukreti is an AI/ML Engineer specializing in artificial intelligence and machine learning solutions.">
+        content="AI Engineer building healthcare AI systems — 98.8% accuracy, 3 patents, 2 IEEE papers. Open to opportunities.">
     <meta property="twitter:image" content="https://vineetkukreti.in/images/profile.jpg">
 
     <!-- Favicon -->
@@ -43,42 +43,65 @@
       "image": "https://vineetkukreti.in/images/profile.jpg",
       "sameAs": [
         "https://www.linkedin.com/in/vineetkukretii/",
-        "https://github.com/vineetkukreti"
+        "https://github.com/vineetkukreti",
+        "https://www.kaggle.com/vineetkukreti"
       ],
       "jobTitle": "AI/ML Engineer",
       "worksFor": {
         "@type": "Organization",
-        "name": "South Guild Tech"
+        "name": "Southguild Technologies"
       },
-      "description": "AI/ML Engineer specializing in Generative AI, Computer Vision, and Knowledge Graphs."
+      "description": "AI Engineer building production healthcare AI systems. 98.8% accuracy on knowledge graph queries, 3 patents, 2 IEEE publications."
     }
     </script>
 
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Simple Portfolio Styles -->
     <link rel="stylesheet" href="simple-portfolio.css">
-
-    <!-- Inline Critical CSS moved to simple-portfolio.css -->
 </head>
 
 <body>
 
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Vineet Kukreti</a>
+            <a href="#" class="logo">VK</a>
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
                 <a href="#patents" class="nav-link">Patents</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="https://github.com/vineetkukreti" target="_blank" rel="noopener noreferrer" class="github-nav-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <div class="theme-switcher">
+                    <button class="theme-toggle-btn" id="theme-toggle" aria-label="Change color theme">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div class="theme-dropdown hidden" id="theme-dropdown">
+                        <button class="theme-swatch active" data-theme="cyan" title="Cyan" style="--swatch:#38BDF8;"></button>
+                        <button class="theme-swatch" data-theme="green" title="Green" style="--swatch:#10B981;"></button>
+                        <button class="theme-swatch" data-theme="purple" title="Purple" style="--swatch:#A78BFA;"></button>
+                        <button class="theme-swatch" data-theme="orange" title="Orange" style="--swatch:#F59E0B;"></button>
+                        <button class="theme-swatch" data-theme="rose" title="Rose" style="--swatch:#F43F5E;"></button>
+                        <button class="theme-swatch" data-theme="blue" title="Blue" style="--swatch:#3B82F6;"></button>
+                        <button class="theme-swatch" data-theme="gold" title="Gold" style="--swatch:#EAB308;"></button>
+                    </div>
+                </div>
             </div>
-            <button id="menu-toggle" class="mobile-menu-btn">
+            <button id="menu-toggle" class="mobile-menu-btn" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -88,35 +111,113 @@
     <div id="mobile-menu" class="hidden">
         <div class="menu-overlay" id="close-menu"></div>
         <div class="menu-content">
-            <button class="close-btn" id="close-menu-btn">
+            <button class="close-btn" id="close-menu-btn" aria-label="Close navigation menu">
                 <i class="fas fa-times"></i>
             </button>
             <a href="#about" class="menu-link">About</a>
             <a href="#skills" class="menu-link">Skills</a>
             <a href="#projects" class="menu-link">Projects</a>
             <a href="#experience" class="menu-link">Experience</a>
+            <a href="#education" class="menu-link">Education</a>
             <a href="#patents" class="menu-link">Patents</a>
             <a href="#contact" class="menu-link">Contact</a>
+            <a href="https://github.com/vineetkukreti" target="_blank" rel="noopener noreferrer" class="menu-link menu-link-accent">
+                <i class="fab fa-github"></i> GitHub Profile
+            </a>
+            <a href="https://www.kaggle.com/vineetkukreti" target="_blank" rel="noopener noreferrer" class="menu-link menu-link-kaggle">
+                <i class="fab fa-kaggle"></i> Kaggle Profile
+            </a>
         </div>
     </div>
 
+    <main>
     <!-- Hero Section -->
     <section class="hero-simple">
-        <!-- Canvas removed for minimalist theme -->
-        <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm <span class="text-gradient">Vineet Kukreti</span></h1>
-            <p class="hero-subtitle">> <span class="typewriter"></span><span class="cursor">|</span></p>
-            <p class="hero-description">
-                Building intelligent systems that bridge the gap between data and decision-making.
-                Specializing in <strong>Generative AI</strong>, <strong>Computer Vision</strong>, and <strong>Knowledge
-                    Graphs</strong>.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-code-branch"></i> View Projects
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-paper-plane"></i> Get in Touch
+        <div class="hero-orbs" aria-hidden="true">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="hero-layout">
+            <div class="hero-content">
+                <div class="availability-tag">
+                    <div class="availability-dot"></div>
+                    <span>Building AI systems in production</span>
+                </div>
+                <h1 class="hero-title">Hi, I'm Vineet Kukreti</h1>
+                <div class="hero-terminal" id="hero-terminal">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">vineet@portfolio ~ </span>
+                    </div>
+                    <div class="terminal-body" id="terminal-body"></div>
+                </div>
+                <p class="hero-description">
+                    AI Engineer with 1.5+ years building production-grade healthcare AI systems across
+                    <strong>dermatopathology</strong> and <strong>oncology</strong>. Specialized in
+                    <strong>knowledge graphs</strong>, <strong>LLM-driven pipelines</strong>, and scalable medical data platforms.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                    <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary">
+                        <i class="fas fa-file-download"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Get in Touch
+                    </a>
+                </div>
+                <div class="hero-social-links">
+                    <a href="https://github.com/vineetkukreti" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/vineetkukretii/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.kaggle.com/vineetkukreti" target="_blank" rel="noopener noreferrer" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+                    <a href="mailto:vineetkukreti34@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <div class="social-divider"></div>
+                    <span class="social-handle">vineetkukreti</span>
+                </div>
+            </div>
+
+            <div class="hero-stats-sidebar">
+                <!-- Profile Photo -->
+                <div class="profile-photo-wrapper">
+                    <img src="images/profile.jpg" alt="Vineet Kukreti - AI Engineer" class="profile-photo">
+                </div>
+
+                <!-- Impact Stats Card -->
+                <div class="stats-card impact-card-hero">
+                    <div class="stats-card-header">
+                        <i class="fas fa-trophy"></i>
+                        <span class="card-title">Impact</span>
+                        <span class="card-handle">highlights</span>
+                    </div>
+                    <div class="stats-grid impact-grid-2x2">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label">PATENTS</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="2">0</span>
+                            <span class="stat-label">IEEE PAPERS</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="100" data-suffix="K+">0</span>
+                            <span class="stat-label">RECORDS PROCESSED</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number"><i class="fab fa-kaggle"></i></span>
+                            <span class="stat-label">NOTEBOOK EXPERT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub slim line -->
+                <a href="https://github.com/vineetkukreti" target="_blank" rel="noopener noreferrer" class="github-slim-link">
+                    <i class="fab fa-github"></i>
+                    <span><span id="gh-repos">--</span> public repos</span>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -126,36 +227,51 @@
     <section class="about-simple" id="about">
         <div class="section-header">
             <span class="section-tag">About Me</span>
-            <h2 class="section-title">Building AI Solutions</h2>
+            <h2 class="section-title">AI & Healthcare Innovation</h2>
             <p class="section-description">
-                I'm passionate about using technology to make a positive impact.
+                Passionate about using AI to solve real problems, especially in healthcare.
             </p>
         </div>
 
         <div class="bento-grid">
-            <div class="bento-item bento-wide">
-                <h3><i class="fas fa-user-astronaut" style="color: var(--primary); margin-right: 0.5rem;"></i>
-                    Background</h3>
+            <div class="bento-item">
+                <h3><i class="fas fa-user"></i> Background</h3>
                 <p>
-                    Currently working as an <strong>AI/ML Engineer</strong> at South Guild Tech.
-                    I specialize in building <strong>RAG applications</strong>, managing complex <strong>Knowledge
-                        Graphs (Neo4j)</strong>,
-                    and optimizing Large Language Models for enterprise use cases.
+                    Currently working as an <strong>AI/ML Engineer</strong> at Southguild Technologies,
+                    where I've built most of my impact projects — production-grade healthcare AI platforms
+                    across <strong>dermatopathology</strong> and <strong>oncology</strong>. I specialize in
+                    <strong>RAG applications</strong>, <strong>medical knowledge graphs</strong>, and
+                    AI-powered clinical tools.
+                </p>
+                <p>
+                    At Southguild, I engineered an NLP-to-Cypher pipeline achieving <strong>98.8% accuracy</strong>
+                    on Neo4j knowledge graph queries, designed unified ETL pipelines processing
+                    <strong>100K+ biomedical records</strong> for cancer drug-target discovery, and deployed
+                    scalable microservices using FastAPI and Docker — reducing clinician research time by
+                    <strong>60%</strong>.
+                </p>
+                <p>
+                    B.Tech (Hons.) in Computer Science from Graphic Era University with a specialization in
+                    <strong>Machine Learning & AI</strong>. Previously built ML models at TEKNOCRAT Services
+                    and created the official website for the <strong>Asian Physics Olympiad 2022</strong>,
+                    commissioned by the Indian government.
                 </p>
             </div>
 
-            <div class="bento-item">
-                <h3><i class="fas fa-bullseye" style="color: var(--accent); margin-right: 0.5rem;"></i> Focus</h3>
-                <p>
-                    Generative AI, Computer Vision, and scalable Machine Learning pipelines.
-                </p>
-            </div>
+            <div class="bento-side">
+                <div class="bento-item">
+                    <h3><i class="fas fa-bullseye"></i> Focus</h3>
+                    <p>
+                        Healthcare AI, Knowledge Graphs, LLM-driven Pipelines, and Scalable Medical Data Platforms.
+                    </p>
+                </div>
 
-            <div class="bento-item">
-                <h3><i class="fas fa-trophy" style="color: var(--secondary); margin-right: 0.5rem;"></i> Impact</h3>
-                <p>
-                    3+ Patents filed, 15+ Projects delivered, and mentored 110+ students.
-                </p>
+                <div class="bento-item">
+                    <h3><i class="fas fa-trophy"></i> Impact</h3>
+                    <p>
+                        3 Patents filed, 2 IEEE publications, PMSS Scholar, and mentored 110+ students.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -170,27 +286,40 @@
             </p>
         </div>
 
-        <!-- JavaScript will populate this -->
-        <div id="skills-grid" class="skills-grid"></div>
+        <div id="skills-grid" class="skills-rows"></div>
     </section>
 
     <!-- Projects Section -->
     <section class="projects-simple" id="projects">
         <div class="section-header">
             <span class="section-tag">Projects</span>
-            <h2 class="section-title">My Work</h2>
+            <h2 class="section-title">Featured Projects</h2>
             <p class="section-description">
-                AI/ML projects I've built to solve real problems.
+                Production systems I've built — click any project to see the full story.
             </p>
         </div>
 
-        <!-- JavaScript will populate this -->
-        <div id="projects-grid" class="projects-grid"></div>
+        <div id="featured-grid" class="featured-grid"></div>
 
-        <div class="text-center" style="margin-top: 3rem;">
-            <a href="https://github.com/vineetkukreti" target="_blank" class="btn btn-secondary">
-                <i class="fab fa-github"></i> View More on GitHub
+        <div class="view-all-btn">
+            <button class="btn btn-primary" id="see-all-projects-btn">
+                <i class="fas fa-th-large"></i> See All 8 Projects <i class="fas fa-arrow-right"></i>
+            </button>
+            <a href="https://github.com/vineetkukreti" target="_blank" rel="noopener noreferrer" class="github-repos-link">
+                <i class="fab fa-github"></i> View All Repositories <i class="fas fa-arrow-right"></i>
             </a>
+        </div>
+
+        <div class="mid-page-cta">
+            <p class="cta-text">Interested in what you see?</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Let's Talk
+                </a>
+                <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary">
+                    <i class="fas fa-file-download"></i> Download Resume
+                </a>
+            </div>
         </div>
     </section>
 
@@ -204,8 +333,31 @@
             </p>
         </div>
 
-        <!-- JavaScript will populate this -->
         <div id="experience-list" class="experience-list"></div>
+
+        <div class="mid-page-cta">
+            <p class="cta-text">Want to learn more about my work?</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Let's Talk
+                </a>
+                <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary">
+                    <i class="fas fa-file-download"></i> Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Achievements Section -->
+    <section class="education-simple" id="education">
+        <div class="section-header">
+            <span class="section-tag">Education</span>
+            <h2 class="section-title">Education & Achievements</h2>
+            <p class="section-description">
+                Academic background, publications, and recognitions.
+            </p>
+        </div>
+        <div id="education-content" class="education-content"></div>
     </section>
 
     <!-- Patents Section -->
@@ -217,19 +369,7 @@
                 Intellectual property and research contributions.
             </p>
         </div>
-        <div id="patents-grid" class="projects-grid"></div>
-    </section>
-
-    <!-- Volunteering Section -->
-    <section class="volunteering-simple" id="volunteering">
-        <div class="section-header">
-            <span class="section-tag">Community</span>
-            <h2 class="section-title">Volunteering</h2>
-            <p class="section-description">
-                Giving back to the tech community.
-            </p>
-        </div>
-        <div id="volunteering-grid" class="projects-grid"></div>
+        <div id="patents-grid" class="patents-grid"></div>
     </section>
 
     <!-- Contact Section -->
@@ -238,7 +378,7 @@
             <span class="section-tag">Contact</span>
             <h2 class="section-title">Get in Touch</h2>
             <p class="section-description">
-                Let's discuss your project or opportunity.
+                Currently exploring AI Engineering roles — let's chat about your team's challenges.
             </p>
         </div>
 
@@ -246,38 +386,135 @@
             <form class="contact-form" id="contact-form">
                 <div class="form-group">
                     <label class="form-label">Name</label>
-                    <input type="text" class="form-input" required>
+                    <input type="text" class="form-input" name="name" placeholder="Your name" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-input" required>
+                    <input type="email" class="form-input" name="email" placeholder="your@email.com" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Message</label>
-                    <textarea class="form-textarea" required></textarea>
+                    <textarea class="form-textarea" name="message" placeholder="Your message..." required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <button type="submit" class="btn btn-primary btn-block">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
             </form>
+
+            <div class="contact-alternatives">
+                <span class="contact-alt-label">Or reach out directly:</span>
+                <div class="contact-alt-links">
+                    <a href="mailto:vineetkukreti34@gmail.com" class="contact-alt-item">
+                        <i class="fas fa-envelope"></i> vineetkukreti34@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/vineetkukretii/" target="_blank" rel="noopener noreferrer" class="contact-alt-item">
+                        <i class="fab fa-linkedin"></i> LinkedIn Profile
+                    </a>
+                </div>
+                <span class="contact-response-time">
+                    <i class="fas fa-clock"></i> I typically respond within 24 hours
+                </span>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer style="background: #111827; color: white; padding: 3rem 0; text-align: center;">
-        <div class="container">
-            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-                <a href="https://www.linkedin.com/in/vineetkukretii/" target="_blank"
-                    style="color: white; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/vineetkukreti" target="_blank" style="color: white; font-size: 1.5rem;"><i
-                        class="fab fa-github"></i></a>
-                <a href="mailto:vineetkukreti@example.com" style="color: white; font-size: 1.5rem;"><i
-                        class="fas fa-envelope"></i></a>
+    <!-- All Projects View -->
+    <div id="all-projects-view" class="all-projects-view hidden">
+        <div class="all-projects-header">
+            <button class="modal-back-btn" id="all-projects-close">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </button>
+        </div>
+        <div class="all-projects-content">
+            <div class="section-header">
+                <span class="section-tag">ALL PROJECTS</span>
+                <h2 class="section-title">Complete Project Portfolio</h2>
+                <p class="section-description">8 production systems across Healthcare AI, Enterprise AI, Data Engineering, and Machine Learning.</p>
             </div>
-            <p>&copy; 2025 Vineet Kukreti. All rights reserved.</p>
+            <div class="all-projects-filters" id="all-projects-filters">
+                <button class="filter-btn active" data-filter="all">All (8)</button>
+                <button class="filter-btn" data-filter="Healthcare AI">Healthcare AI (3)</button>
+                <button class="filter-btn" data-filter="Enterprise AI">Enterprise AI (2)</button>
+                <button class="filter-btn" data-filter="Data Engineering">Data Engineering (2)</button>
+                <button class="filter-btn" data-filter="ML Systems">ML Systems (1)</button>
+            </div>
+            <div id="all-projects-grid" class="all-projects-grid"></div>
+            <div class="mid-page-cta">
+                <p class="cta-text">Interested in collaborating?</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary" id="all-projects-contact">
+                        <i class="fas fa-paper-plane"></i> Let's Talk
+                    </a>
+                    <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary">
+                        <i class="fas fa-file-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="project-modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-panel">
+            <div class="modal-header">
+                <button class="modal-back-btn" id="modal-close" aria-label="Close project details">
+                    <i class="fas fa-arrow-left"></i> Back to Projects
+                </button>
+            </div>
+            <div class="modal-body">
+                <span class="modal-category" id="modal-category"></span>
+                <h2 class="modal-title" id="modal-title"></h2>
+                <div class="modal-metrics" id="modal-metrics"></div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Overview</h3>
+                    <div class="modal-description" id="modal-description"></div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Tech Stack</h3>
+                    <div class="modal-tech" id="modal-tech"></div>
+                </div>
+                <div class="modal-section modal-demo-section hidden" id="modal-demo-section">
+                    <h3 class="modal-section-title">Live Demo</h3>
+                    <div class="modal-demo" id="modal-demo"></div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Architecture</h3>
+                    <div class="modal-architecture" id="modal-architecture"></div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Engineering Highlights</h3>
+                    <div class="modal-highlights" id="modal-highlights"></div>
+                </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">Competencies Demonstrated</h3>
+                    <div class="modal-signals" id="modal-signals"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/vineetkukretii/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/vineetkukreti" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.kaggle.com/vineetkukreti" target="_blank" rel="noopener noreferrer"><i class="fab fa-kaggle"></i></a>
+                <a href="mailto:vineetkukreti34@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2026 Vineet Kukreti. All rights reserved.</p>
+            <p class="footer-tagline">Let's build something that matters — <a href="#contact" class="footer-cta-link">get in touch</a></p>
         </div>
     </footer>
 
@@ -285,16 +522,12 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
-            // Initialize EmailJS with your public key
             emailjs.init("N-ShZWKijrVSk1xrV");
         })();
     </script>
 
     <!-- Simple Portfolio Script -->
     <script src="simple-portfolio.js"></script>
-
-    <!-- Mobile Menu Script -->
-    <!-- Logic moved to simple-portfolio.js -->
 </body>
 
 </html>
