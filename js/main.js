@@ -106,6 +106,61 @@ const portfolioData = {
   // Featured projects (Power Projects — merged for recruiter impact)
   featuredProjects: [
     {
+      id: 'kafal-ai',
+      category: 'Neural Machine Translation',
+      isCurrent: true,
+      icon: 'fas fa-language',
+      title: 'कafal AI · Garhwali Neural Machine Translation Platform',
+      tagline: 'End-to-end NMT research platform fine-tuning Seq2Seq LLMs (mT5, NLLB) for low-resource Himalayan languages.',
+      description: 'Research toolkit and full-stack web platform for Garhwali (gbm) ↔ Hindi (hi) neural translation. Features fine-tuned mT5, byT5, and NLLB-600M models via QLoRA, diagnostic linguistic capability tests, Sarvam AI speech integration (STT/TTS), and native speaker human-in-the-loop review.',
+      tags: ['PyTorch', 'Hugging Face', 'FastAPI', 'React', 'Azure', 'Sarvam AI', 'mT5 / NLLB'],
+      impact: 'Live on Azure | gbm ↔ hi NMT | Zero Leakage Benchmark',
+      liveDemoUrl: 'https://kafal-ai-platform.yellowplant-4005cc80.southeastasia.azurecontainerapps.io/',
+      fullDescription: [
+        'Kafal AI is an end-to-end neural machine translation research platform and production web application engineered for Garhwali (gbm, Devanagari) ↔ Hindi (hi, Devanagari) translation — preserving and digitizing endangered Himalayan linguistic heritage through state-of-the-art AI.',
+        'The platform supports multilingual sequence-to-sequence fine-tuning across mT5-small, byT5-small, and NLLB-600M architectures using parameter-efficient QLoRA. Strict evaluation pipelines enforce zero train/test leakage and evaluate performance using SacreBLEU, chrF++, length-ratio filters, and dialect challenge sets (Srinagariya vs. Salani).',
+        'Deployed as a full-stack system on Azure Container Apps with a React + TypeScript + Vite frontend and a FastAPI backend. Integrated with Sarvam AI API (Saaras STT & Bulbul TTS) for bidirectional voice translation, backed by a collaborative Human-in-the-Loop (HITL) native speaker elicitation and annotation studio.'
+      ],
+      impactMetrics: [
+        { value: 'gbm ↔ hi', label: 'Language Pair', icon: 'fas fa-language' },
+        { value: 'Live', label: 'Azure Deployed', icon: 'fas fa-cloud' },
+        { value: '3 Models', label: 'mT5 / byT5 / NLLB', icon: 'fas fa-brain' },
+        { value: 'STT & TTS', label: 'Sarvam AI Speech', icon: 'fas fa-microphone-alt' }
+      ],
+      techStack: [
+        { name: 'PyTorch', category: 'Deep Learning' },
+        { name: 'Hugging Face', category: 'Transformers' },
+        { name: 'FastAPI', category: 'Backend' },
+        { name: 'React + TS', category: 'Frontend' },
+        { name: 'Azure Apps', category: 'Cloud DevOps' },
+        { name: 'Sarvam AI', category: 'Voice & Speech' },
+        { name: 'QLoRA', category: 'Fine-Tuning' },
+        { name: 'Docker', category: 'Containers' }
+      ],
+      architectureSteps: [
+        { label: 'Chatak Grammar & Lexicons', icon: 'fas fa-book' },
+        { label: 'Leakage-Free Splits', icon: 'fas fa-filter' },
+        { label: 'Seq2Seq / QLoRA Tuning', icon: 'fas fa-brain' },
+        { label: 'FastAPI Engine', icon: 'fas fa-server' },
+        { label: 'Sarvam Speech AI', icon: 'fas fa-microphone' },
+        { label: 'Interactive Web Playground', icon: 'fas fa-laptop-code' }
+      ],
+      engineeringHighlights: [
+        'Currently active research & development: architected complete data curation, gold validation, and model release pipelines across versions v1 through v4',
+        'Fine-tuned multilingual Seq2Seq models (mT5-small, byT5-small, NLLB-600M) with deterministic seeds and zero train/test benchmark leakage',
+        'Integrated Sarvam AI acoustic proxy models for automated Hindi/Garhwali Speech-to-Text (Saaras) and Text-to-Speech (Bulbul)',
+        'Built full-stack web studio with React, TypeScript, and Vite featuring diagnostic capability slice testing and blind second-review adjudication',
+        'Deployed production-ready containerized microservices on Azure Container Apps with automated health probes and uvicorn workers'
+      ],
+      seniorSignals: [
+        { label: 'NLP / NMT Research', icon: 'fas fa-language' },
+        { label: 'Deep Learning / PyTorch', icon: 'fas fa-brain' },
+        { label: 'Full-Stack Architecture', icon: 'fas fa-cubes' },
+        { label: 'Speech AI Integration', icon: 'fas fa-microphone' },
+        { label: 'Production Cloud (Azure)', icon: 'fas fa-cloud' }
+      ]
+    },
+    {
       id: 'healthcare-ai',
       category: 'Healthcare AI',
       icon: 'fas fa-heartbeat',
@@ -338,8 +393,16 @@ const portfolioData = {
       tags: ["Sustainability", "IoT"]
     }
   ],
-  // All 8 individual projects (for "See All Projects" view)
+  // All 9 individual projects (for "See All Projects" view)
   allProjects: [
+    {
+      title: 'कafal AI · Garhwali Neural Machine Translation',
+      category: 'NLP & Research',
+      description: 'End-to-end NMT research platform and full-stack application for Garhwali (gbm) ↔ Hindi (hi) fine-tuning mT5, NLLB-600M, and byT5. Integrated with Sarvam AI speech (STT/TTS) and live on Azure.',
+      metrics: ['Live on Azure', 'gbm ↔ hi NMT', 'mT5 / NLLB Seq2Seq', 'Active Research'],
+      tags: ['PyTorch', 'HuggingFace', 'FastAPI', 'React', 'Azure', 'Sarvam AI'],
+      featuredId: 'kafal-ai'
+    },
     {
       title: 'PathAssist / DermaPath',
       category: 'Healthcare AI',
@@ -437,8 +500,9 @@ function interactiveTerminal() {
 
   const commands = [
     { cmd: 'vineet --role', response: 'AI/ML Engineer' },
-    { cmd: 'vineet --impact', response: '98.8% accuracy \u00b7 3 patents \u00b7 100K+ records' },
-    { cmd: 'vineet --domains', response: 'Healthcare AI \u00b7 Data Intelligence \u00b7 Enterprise Automation' }
+    { cmd: 'vineet --current-build', response: 'कafal AI: Garhwali MT (mT5 / NLLB Seq2Seq)' },
+    { cmd: 'vineet --impact', response: '98.8% accuracy · 3 patents · 100K+ records' },
+    { cmd: 'vineet --domains', response: 'Neural MT · Healthcare AI · Knowledge Graphs' }
   ];
 
   let cmdIndex = 0;
@@ -581,33 +645,51 @@ function populateFeaturedProjects() {
   if (!container) return;
 
   container.innerHTML = portfolioData.featuredProjects.map((project, i) => `
-    <button class="featured-card" data-project="${project.id}" aria-label="View details for ${project.title}">
+    <div class="featured-card${project.isCurrent ? ' is-flagship' : ''}" data-project="${project.id}" role="button" tabindex="0" aria-label="View details for ${project.title}">
       <div class="featured-card-header">
         <span class="featured-category">
           <i class="${project.icon}"></i> ${project.category}
         </span>
+        ${project.isCurrent ? `
+          <span class="featured-status-badge">
+            <span class="badge-dot pulse"></span> CURRENT RESEARCH
+          </span>
+        ` : ''}
         <span class="featured-number">0${i + 1}</span>
       </div>
       <h3 class="featured-card-title">${project.title}</h3>
       <p class="featured-card-desc">${project.tagline}</p>
       <div class="featured-card-impact-row">
-        ${project.impactMetrics.slice(0, 2).map(m => `
+        ${project.impactMetrics.slice(0, project.isCurrent ? 4 : 2).map(m => `
           <span class="featured-metric"><i class="${m.icon}"></i> ${m.value} ${m.label}</span>
         `).join('')}
       </div>
       <div class="featured-card-tags">
-        ${project.tags.slice(0, 5).map(tag => `<span class="tag">${tag}</span>`).join('')}
+        ${project.tags.slice(0, project.isCurrent ? 7 : 5).map(tag => `<span class="tag">${tag}</span>`).join('')}
       </div>
       <div class="featured-card-footer">
-        <span class="featured-view-hint">View Full Case Study <i class="fas fa-arrow-right"></i></span>
+        <span class="featured-view-hint">View Case Study <i class="fas fa-arrow-right"></i></span>
+        ${project.liveDemoUrl ? `
+          <a href="${project.liveDemoUrl}" target="_blank" rel="noopener noreferrer" class="card-demo-btn" data-track-demo="${project.id}" onclick="event.stopPropagation();">
+            <i class="fas fa-external-link-alt"></i> Live Platform
+          </a>
+        ` : ''}
       </div>
-    </button>
+    </div>
   `).join('');
 
   container.querySelectorAll('.featured-card').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
       const project = portfolioData.featuredProjects.find(p => p.id === card.dataset.project);
       if (project) openProjectModal(project);
+    });
+    card.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('a')) {
+        e.preventDefault();
+        const project = portfolioData.featuredProjects.find(p => p.id === card.dataset.project);
+        if (project) openProjectModal(project);
+      }
     });
   });
 }
@@ -640,7 +722,7 @@ function closeProjectModal() {
 
 function populateModal(project) {
   document.getElementById('modal-category').innerHTML =
-    `<i class="${project.icon}"></i> ${project.category}`;
+    `<i class="${project.icon}"></i> ${project.category}${project.isCurrent ? ' · <span class="badge-dot pulse" style="vertical-align:middle;margin:0 4px;"></span> Currently Active' : ''}`;
   document.getElementById('modal-title').textContent = project.title;
 
   document.getElementById('modal-metrics').innerHTML = project.impactMetrics.map(m => `
@@ -683,7 +765,7 @@ function populateModal(project) {
     </span>
   `).join('');
 
-  // Handle demo video section
+  // Handle demo video or live platform demo section
   const demoSection = document.getElementById('modal-demo-section');
   const demoContainer = document.getElementById('modal-demo');
   if (project.demoVideo) {
@@ -693,6 +775,16 @@ function populateModal(project) {
         <source src="${project.demoVideo}" type="video/webm">
         Your browser does not support the video tag.
       </video>
+    `;
+  } else if (project.liveDemoUrl) {
+    demoSection.classList.remove('hidden');
+    demoContainer.innerHTML = `
+      <div class="demo-live-launch">
+        <p class="demo-live-text">The interactive model playground, speech interface (Sarvam AI STT & TTS), and native-speaker annotation studio are live in production:</p>
+        <a href="${project.liveDemoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-launch-demo" data-track-demo="${project.id}">
+          <i class="fas fa-external-link-alt"></i> Launch Live Kafal AI Platform
+        </a>
+      </div>
     `;
   } else {
     demoSection.classList.add('hidden');
@@ -1391,6 +1483,21 @@ function setupAnalytics() {
   };
 
   document.addEventListener('click', (e) => {
+    // Live platform / external demo clicks (Kafal AI and project demos)
+    const demoLink = e.target.closest('[data-track-demo]');
+    if (demoLink) {
+      track('live_demo_click', {
+        project: demoLink.dataset.trackDemo,
+        url: demoLink.href,
+        source: demoLink.closest('#project-modal') ? 'modal' : 'featured_card'
+      });
+      track('outbound_click', {
+        network: 'kafal_ai_platform',
+        url: demoLink.href
+      });
+      return;
+    }
+
     // Resume downloads — tracks which button CTA drove the download
     const resume = e.target.closest('[data-track-resume]');
     if (resume) {

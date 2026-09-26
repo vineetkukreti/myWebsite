@@ -14,7 +14,7 @@ A production-grade, zero-framework portfolio built for high performance, accessi
 
 * **Pure Web Standards**: Zero npm bloat, zero heavy framework runtimes. Built with semantic HTML5, modern CSS3 custom properties, and vanilla ES6+ JavaScript.
 * **Instant Load (<0.3s)**: Zero-bundle compilation. First Contentful Paint under 300ms on global CDNs.
-* **Privacy-First Observability**: Integrated with Google Analytics 4 (`G-3G64TBSX28`) using custom event beacons (`resume_download`, `project_open`, `section_view`, `scroll_depth`). All metrics remain 100% private to the dashboard owner with zero client-side exposure.
+* **Privacy-First Observability**: Integrated with Google Analytics 4 (`G-3G64TBSX28`) using custom event beacons (`resume_download`, `project_open`, `live_demo_click`, `section_view`, `scroll_depth`). All metrics remain 100% private to the dashboard owner with zero client-side exposure.
 * **Responsive & Accessible**: Strict WCAG contrast compliance, responsive breakpoint system, reduced-motion awareness, and clean touch-first targets.
 
 ---
