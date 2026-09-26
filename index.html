@@ -61,6 +61,15 @@
 
     <!-- Simple Portfolio Styles -->
     <link rel="stylesheet" href="simple-portfolio.css">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF4DN36K3G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QF4DN36K3G');
+    </script>
 </head>
 
 <body>
@@ -163,7 +172,7 @@
                     <a href="#projects" class="btn btn-primary">
                         <i class="fas fa-code"></i> View Projects
                     </a>
-                    <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary">
+                    <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary" data-track-resume="hero">
                         <i class="fas fa-file-download"></i> Download Resume
                     </a>
                     <a href="#contact" class="btn btn-secondary">
@@ -316,7 +325,7 @@
                 <a href="#contact" class="btn btn-primary">
                     <i class="fas fa-paper-plane"></i> Let's Talk
                 </a>
-                <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary">
+                <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary" data-track-resume="projects">
                     <i class="fas fa-file-download"></i> Download Resume
                 </a>
             </div>
@@ -341,7 +350,7 @@
                 <a href="#contact" class="btn btn-primary">
                     <i class="fas fa-paper-plane"></i> Let's Talk
                 </a>
-                <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary">
+                <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary" data-track-resume="experience">
                     <i class="fas fa-file-download"></i> Download Resume
                 </a>
             </div>
@@ -448,7 +457,7 @@
                     <a href="#contact" class="btn btn-primary" id="all-projects-contact">
                         <i class="fas fa-paper-plane"></i> Let's Talk
                     </a>
-                    <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary">
+                    <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary" data-track-resume="all_projects">
                         <i class="fas fa-file-download"></i> Download Resume
                     </a>
                 </div>

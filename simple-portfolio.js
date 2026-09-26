@@ -969,6 +969,7 @@ function setupContactForm() {
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    track('contact_submit');
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
@@ -985,6 +986,7 @@ function setupContactForm() {
 
     emailjs.send('service_04j55t8', 'template_iwfx0dp', templateParams)
       .then(function () {
+        track('contact_result', { status: 'success' });
         submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
         submitBtn.classList.add('btn-success');
         form.reset();
@@ -995,6 +997,7 @@ function setupContactForm() {
           submitBtn.classList.remove('btn-success', 'btn-error');
         }, 3000);
       }, function (error) {
+        track('contact_result', { status: 'error' });
         console.error('FAILED...', error);
         submitBtn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed to Send';
         submitBtn.classList.add('btn-error');
@@ -1331,6 +1334,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupCursorGlow();
   setupTiltCards();
   setupMagneticButtons();
+  setupAnalytics();
 
   // Fetch GitHub profile stats for hero card
   await fetchGitHubProfile();
@@ -1341,3 +1345,101 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   console.log('Portfolio Loaded!');
 });
+
+// ============================================
+// Analytics — GA4 custom events
+// ============================================
+
+// Every event funnels through here so the site still works with gtag blocked
+// (ad blockers, privacy extensions) or absent during local development.
+function track(name, params = {}) {
+  if (typeof gtag !== 'function') return;
+  gtag('event', name, params);
+}
+
+function setupAnalytics() {
+  const OUTBOUND = {
+    'github.com': 'github',
+    'linkedin.com': 'linkedin',
+    'kaggle.com': 'kaggle'
+  };
+
+  document.addEventListener('click', (e) => {
+    // Resume downloads — data-track-resume marks which button was used
+    const resume = e.target.closest('[data-track-resume]');
+    if (resume) {
+      track('resume_download', { location: resume.dataset.trackResume });
+      return;
+    }
+
+    // Project case studies (featured grid and the all-projects view)
+    const card = e.target.closest('[data-project], [data-featured]');
+    if (card) {
+      track('project_open', {
+        project: card.dataset.project || card.dataset.featured,
+        source: card.dataset.project ? 'featured_grid' : 'all_projects'
+      });
+      return;
+    }
+
+    // Outbound profile links
+    const link = e.target.closest('a[href^="http"]');
+    if (link) {
+      const host = new URL(link.href).hostname.replace(/^www\./, '');
+      const network = OUTBOUND[host];
+      if (network) track('outbound_click', { network, url: link.href });
+      return;
+    }
+
+    // Accent theme picker
+    const swatch = e.target.closest('.theme-swatch');
+    if (swatch) track('theme_change', { theme: swatch.dataset.theme });
+  });
+
+  const allProjectsBtn = document.getElementById('all-projects-view');
+  if (allProjectsBtn) {
+    allProjectsBtn.addEventListener('click', () => track('all_projects_open'));
+  }
+
+  // Which sections people actually reach, reported once each
+  const sections = document.querySelectorAll('section[id]');
+  if (sections.length && 'IntersectionObserver' in window) {
+    const seen = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting || seen.has(entry.target.id)) return;
+        seen.add(entry.target.id);
+        track('section_view', { section: entry.target.id });
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+  }
+
+  // Scroll depth milestones
+  const milestones = [25, 50, 75, 100];
+  const hit = new Set();
+  window.addEventListener('scroll', () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    const pct = (window.scrollY / scrollable) * 100;
+    milestones.forEach(m => {
+      if (pct >= m && !hit.has(m)) {
+        hit.add(m);
+        track('scroll_depth', { percent: m });
+      }
+    });
+  }, { passive: true });
+
+  // Engaged time, sent once as the page goes away
+  const started = Date.now();
+  let reported = false;
+  const reportTime = () => {
+    if (reported) return;
+    reported = true;
+    track('time_on_page', { seconds: Math.round((Date.now() - started) / 1000) });
+  };
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') reportTime();
+  });
+  window.addEventListener('pagehide', reportTime);
+}
