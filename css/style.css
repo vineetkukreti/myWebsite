@@ -1474,6 +1474,12 @@ nav {
     color: var(--accent);
 }
 
+.experience-duration {
+    font-size: 0.6875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
 .experience-item:not(:first-child) .experience-date {
     color: var(--text-tertiary);
 }

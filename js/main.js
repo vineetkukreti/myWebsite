@@ -26,7 +26,8 @@ const portfolioData = {
     {
       title: 'AI Engineer',
       company: 'Southguild Technologies',
-      date: 'May 2024 - Present',
+      date: 'Apr 2024 - Present',
+      startDate: '2024-04-01',
       description: 'Built production-grade healthcare AI platforms across dermatopathology and oncology.',
       bullets: [
         'Developed NLP-to-Cypher pipeline achieving 98.8% accuracy (88/89 queries) on Neo4j knowledge graph',
@@ -829,15 +830,39 @@ function setupAllProjects() {
 // Populate Experience
 // ============================================
 
+function calculateDuration(startDateStr) {
+  const start = new Date(startDateStr);
+  const now = new Date();
+  const totalMonths = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+  if (years > 0 && months > 0) return `${years} yr${years > 1 ? 's' : ''} ${months} mo${months > 1 ? 's' : ''}`;
+  if (years > 0) return `${years} yr${years > 1 ? 's' : ''}`;
+  return `${months} mo${months > 1 ? 's' : ''}`;
+}
+
+function updateHeroExperience() {
+  const heroExpEl = document.getElementById('hero-exp-years');
+  if (!heroExpEl) return;
+  const start = new Date(2024, 3, 1); // April 2024
+  const now = new Date();
+  const totalMonths = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+  const years = totalMonths / 12;
+  const rounded = (Math.floor(years * 2) / 2).toFixed(1);
+  heroExpEl.textContent = `${rounded}+`;
+}
+
 function populateExperience() {
   const experienceContainer = document.getElementById('experience-list');
   if (!experienceContainer) return;
 
-  experienceContainer.innerHTML = portfolioData.experiences.map(exp => `
+  experienceContainer.innerHTML = portfolioData.experiences.map(exp => {
+    const duration = (exp.startDate && exp.current) ? calculateDuration(exp.startDate) : null;
+    return `
     <div class="experience-item${exp.current ? ' experience-current' : ''}">
       <div class="experience-left">
         <div class="experience-date">
-          ${exp.date}
+          ${exp.date}${duration ? `<span class="experience-duration"> · ${duration}</span>` : ''}
           ${exp.current ? '<span class="experience-current-badge">CURRENT</span>' : ''}
         </div>
         <div class="experience-company">${exp.company}</div>
@@ -852,7 +877,8 @@ function populateExperience() {
         ` : ''}
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 // ============================================
@@ -1322,6 +1348,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   populateExperience();
   populateEducation();
   populatePatents();
+  updateHeroExperience();
   setupSmoothScroll();
   setupMobileMenu();
   setupContactForm();
