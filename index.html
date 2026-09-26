@@ -59,16 +59,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Simple Portfolio Styles -->
-    <link rel="stylesheet" href="simple-portfolio.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF4DN36K3G"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G64TBSX28"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-QF4DN36K3G');
+
+        gtag('config', 'G-3G64TBSX28');
     </script>
 </head>
 
@@ -83,7 +84,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">VK</a>
+            <a href="#" class="logo">VK<span class="logo-dot">.</span></a>
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
@@ -150,10 +151,10 @@
         <div class="hero-layout">
             <div class="hero-content">
                 <div class="availability-tag">
-                    <div class="availability-dot"></div>
-                    <span>Building AI systems in production</span>
+                    <span class="availability-dot"></span>
+                    <span>AI Systems in Production & Research</span>
                 </div>
-                <h1 class="hero-title">Hi, I'm Vineet Kukreti</h1>
+                <h1 class="hero-title">Hi, I'm <span class="hero-name-gradient">Vineet Kukreti</span></h1>
                 <div class="hero-terminal" id="hero-terminal">
                     <div class="terminal-header">
                         <span class="terminal-dot red"></span>
@@ -170,7 +171,7 @@
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-code"></i> View Projects
+                        <i class="fas fa-terminal"></i> View Projects
                     </a>
                     <a href="assets/vineet_kukreti_resume.pdf" download class="btn btn-secondary" data-track-resume="hero">
                         <i class="fas fa-file-download"></i> Download Resume
@@ -192,20 +193,22 @@
             <div class="hero-stats-sidebar">
                 <!-- Profile Photo -->
                 <div class="profile-photo-wrapper">
-                    <img src="images/profile.jpg" alt="Vineet Kukreti - AI Engineer" class="profile-photo">
+                    <div class="profile-photo-ring">
+                        <img src="images/profile.jpg" alt="Vineet Kukreti - AI Engineer" class="profile-photo">
+                    </div>
                 </div>
 
                 <!-- Impact Stats Card -->
                 <div class="stats-card impact-card-hero">
                     <div class="stats-card-header">
-                        <i class="fas fa-trophy"></i>
-                        <span class="card-title">Impact</span>
-                        <span class="card-handle">highlights</span>
+                        <i class="fas fa-shield-alt"></i>
+                        <span class="card-title">Engineering Signals</span>
+                        <span class="card-handle">impact</span>
                     </div>
                     <div class="stats-grid impact-grid-2x2">
                         <div class="stat-item">
                             <span class="stat-number" data-count="3">0</span>
-                            <span class="stat-label">PATENTS</span>
+                            <span class="stat-label">PATENTS FILED</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number" data-count="2">0</span>
@@ -216,8 +219,8 @@
                             <span class="stat-label">RECORDS PROCESSED</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number"><i class="fab fa-kaggle"></i></span>
-                            <span class="stat-label">NOTEBOOK EXPERT</span>
+                            <span class="stat-number stat-badge-text"><i class="fab fa-kaggle"></i> 3x</span>
+                            <span class="stat-label">KAGGLE EXPERT</span>
                         </div>
                     </div>
                 </div>
@@ -535,8 +538,8 @@
         })();
     </script>
 
-    <!-- Simple Portfolio Script -->
-    <script src="simple-portfolio.js"></script>
+    <!-- Main Script -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>

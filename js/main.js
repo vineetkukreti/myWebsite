@@ -1347,11 +1347,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // ============================================
-// Analytics — GA4 custom events
+// Google Analytics 4 (GA4) Custom Event Tracking
+// All visitor engagement metrics route 100% privately to your GA4 account (G-3G64TBSX28).
 // ============================================
 
-// Every event funnels through here so the site still works with gtag blocked
-// (ad blockers, privacy extensions) or absent during local development.
 function track(name, params = {}) {
   if (typeof gtag !== 'function') return;
   gtag('event', name, params);
@@ -1365,14 +1364,14 @@ function setupAnalytics() {
   };
 
   document.addEventListener('click', (e) => {
-    // Resume downloads — data-track-resume marks which button was used
+    // Resume downloads — tracks which button CTA drove the download
     const resume = e.target.closest('[data-track-resume]');
     if (resume) {
       track('resume_download', { location: resume.dataset.trackResume });
       return;
     }
 
-    // Project case studies (featured grid and the all-projects view)
+    // Project case studies (featured grid and all-projects view)
     const card = e.target.closest('[data-project], [data-featured]');
     if (card) {
       track('project_open', {
@@ -1385,9 +1384,11 @@ function setupAnalytics() {
     // Outbound profile links
     const link = e.target.closest('a[href^="http"]');
     if (link) {
-      const host = new URL(link.href).hostname.replace(/^www\./, '');
-      const network = OUTBOUND[host];
-      if (network) track('outbound_click', { network, url: link.href });
+      try {
+        const host = new URL(link.href).hostname.replace(/^www\./, '');
+        const network = OUTBOUND[host];
+        if (network) track('outbound_click', { network, url: link.href });
+      } catch (err) {}
       return;
     }
 
@@ -1401,7 +1402,7 @@ function setupAnalytics() {
     allProjectsBtn.addEventListener('click', () => track('all_projects_open'));
   }
 
-  // Which sections people actually reach, reported once each
+  // Which sections visitors reach (scroll attention)
   const sections = document.querySelectorAll('section[id]');
   if (sections.length && 'IntersectionObserver' in window) {
     const seen = new Set();
@@ -1415,7 +1416,7 @@ function setupAnalytics() {
     sections.forEach(s => observer.observe(s));
   }
 
-  // Scroll depth milestones
+  // Scroll depth milestones (25%, 50%, 75%, 100%)
   const milestones = [25, 50, 75, 100];
   const hit = new Set();
   window.addEventListener('scroll', () => {
@@ -1430,7 +1431,7 @@ function setupAnalytics() {
     });
   }, { passive: true });
 
-  // Engaged time, sent once as the page goes away
+  // Engaged time on page, sent when user leaves
   const started = Date.now();
   let reported = false;
   const reportTime = () => {
@@ -1443,3 +1444,4 @@ function setupAnalytics() {
   });
   window.addEventListener('pagehide', reportTime);
 }
+

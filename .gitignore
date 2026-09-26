@@ -17,5 +17,9 @@ id_*
 # Design tool files
 *.pen
 
-# Claude Code
+# Claude Code & AI assistants
 .claude/
+AGENTS.md
+
+# Design & visual verification artifacts
+assets/designs/
