@@ -1429,6 +1429,27 @@ function setupScrollAnimations() {
 }
 
 // ============================================
+// Floating Project Announcement Toast
+// ============================================
+
+function setupToastNotification() {
+  const toast = document.getElementById('floating-project-toast');
+  const closeBtn = document.getElementById('toast-close');
+  if (!toast || !closeBtn) return;
+
+  if (sessionStorage.getItem('kafal_toast_dismissed') === 'true') return;
+
+  setTimeout(() => {
+    toast.classList.add('toast-visible');
+  }, 1200);
+
+  closeBtn.addEventListener('click', () => {
+    toast.classList.remove('toast-visible');
+    sessionStorage.setItem('kafal_toast_dismissed', 'true');
+  });
+}
+
+// ============================================
 // Initialize
 // ============================================
 
@@ -1453,6 +1474,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupCursorGlow();
   setupTiltCards();
   setupMagneticButtons();
+  setupToastNotification();
   setupAnalytics();
 
   // Fetch GitHub profile stats for hero card
